@@ -1,23 +1,25 @@
 import os
 import sentry_sdk
-from bottle import run, route
+from bottle import run, route, HTTPResponse
 from sentry_sdk.integrations.bottle import BottleIntegration
 
 # Enter your Sentry link here
-sentry_dsn = 'https://1543850c449c47cc9728989f67816ef2@o453036.ingest.sentry.io/5441339'
+SENTRY_DSN = 'https://1543850c449c47cc9728989f67816ef2@o453036.ingest.sentry.io/5441339'
 
 sentry_sdk.init(
-    dsn=sentry_dsn,
+    dsn=SENTRY_DSN,
     integrations=[BottleIntegration()]
 )
 
 @route('/')
 def im_ok():
-    return 'Im ok.'
+    response = HTTPResponse(status=200, body='I am OK')
+    return response
 
 @route('/success')
 def get_success():
-    return '200 OK'
+    response = HTTPResponse(status=200, body='OK')
+    return response
 
 @route('/fail')
 def get_error():
