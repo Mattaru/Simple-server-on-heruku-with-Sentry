@@ -4,7 +4,7 @@ from bottle import run, route
 from sentry_sdk.integrations.bottle import BottleIntegration
 
 # Enter your Sentry link here
-sentry_dsn = 'enter your link'
+sentry_dsn = 'https://1543850c449c47cc9728989f67816ef2@o453036.ingest.sentry.io/5441339'
 
 sentry_sdk.init(
     dsn=sentry_dsn,
