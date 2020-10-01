@@ -4,7 +4,7 @@ from bottle import Bottle
 from sentry_sdk.integrations.bottle import BottleIntegration
 
 sentry_sdk.init(
-    dsn="https://1543850c449c47cc9728989f67816ef2@o453036.ingest.sentry.io/5441339",
+    dsn='https://1543850c449c47cc9728989f67816ef2@o453036.ingest.sentry.io/5441339',
     integrations=[BottleIntegration()]
 )
 app = Bottle()
@@ -27,7 +27,7 @@ if os.environ.get('SERVER_URL') == 'https://serene-falls-76330.herokuapp.com':
         host='0.0.0.0',
         port=int(os.environ.get('port', 5000)),
         server='gunicorn',
-        worker=3
+        workers=3
     )
 else:
     app.run(
