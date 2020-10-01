@@ -1,2 +1,2 @@
-heroku
+bottle
 gunicorn
