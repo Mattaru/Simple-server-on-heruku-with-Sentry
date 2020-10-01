@@ -22,7 +22,7 @@ def get_error():
     raise RuntimeError('Server error for the test')
     return
 
-if os.environ.get('SERVER_URL') == 'https://afternoon-island-30912.herokuapp.com':
+if os.environ.get('SERVER_URL') == 'https://fathomless-escarpment-57347.herokuapp.com':
     run(
         host='0.0.0.0',
         port=int(os.environ.get('port', 5000)),
