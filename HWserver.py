@@ -3,6 +3,7 @@ import sentry_sdk
 from bottle import run, route
 from sentry_sdk.integrations.bottle import BottleIntegration
 
+# Enter your Sentry link here
 sentry_dsn = 'enter your link'
 
 sentry_sdk.init(
