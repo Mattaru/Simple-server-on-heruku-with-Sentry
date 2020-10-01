@@ -1,6 +1,6 @@
 import os
 import sentry_sdk
-from bottle import Bottle
+from bottle import Bottle, run
 from sentry_sdk.integrations.bottle import BottleIntegration
 
 sentry_sdk.init(
@@ -23,14 +23,14 @@ def get_error():
     return
 
 if os.environ.get('SERVER_URL') == 'https://serene-falls-76330.herokuapp.com':
-    app.run(
+    run(
         host='0.0.0.0',
         port=int(os.environ.get('port', 5000)),
         server='gunicorn',
         workers=3
     )
 else:
-    app.run(
+    run(
         host='localhost',
         port=8080,
         debug=True
