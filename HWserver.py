@@ -14,11 +14,12 @@ def im_ok():
 
 @route('/success')
 def get_success():
-    return 'I am ready for work.'
+    return '200'
 
 @route('/fail')
 def get_error():
     raise RuntimeError('Server error for the test')
+    return '500'
 
 if os.environ.get('SERVER_URL') == 'https://fathomless-escarpment-57347.herokuapp.com':
     run(
