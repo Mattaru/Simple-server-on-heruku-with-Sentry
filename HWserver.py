@@ -3,8 +3,10 @@ import sentry_sdk
 from bottle import run, route
 from sentry_sdk.integrations.bottle import BottleIntegration
 
+sentry_dsn = 'enter your link'
+
 sentry_sdk.init(
-    dsn='https://1543850c449c47cc9728989f67816ef2@o453036.ingest.sentry.io/5441339',
+    dsn=sentry_dsn,
     integrations=[BottleIntegration()]
 )
 
@@ -14,12 +16,11 @@ def im_ok():
 
 @route('/success')
 def get_success():
-    return '200'
+    return '200 OK'
 
 @route('/fail')
 def get_error():
     raise RuntimeError('Server error for the test')
-    return '500'
 
 if os.environ.get('SERVER_URL') == 'https://fathomless-escarpment-57347.herokuapp.com':
     run(
