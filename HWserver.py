@@ -9,16 +9,20 @@ sentry_sdk.init(
 )
 app = Bottle()
 
+@app.route('/')
+def im_ok():
+    return 'Im ok.'
+
 @app.route('/success')
 def get_success():
-    return 'I am ready for work!'
+    return 'I am ready for work.'
 
 @app.route('/fail')
 def get_error():
-    raise RuntimeError('Server error')
+    raise RuntimeError('Server error for the test')
     return
 
-if os.environ.get('SERVER_URL') == '':
+if os.environ.get('SERVER_URL') == 'https://serene-falls-76330.herokuapp.com':
     app.run(
         host='0.0.0.0',
         port=int(os.environ.get('port', 5000)),
